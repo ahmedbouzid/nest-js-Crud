@@ -23,4 +23,8 @@ export class TodoService {
     Object.assign(todo, dto);
     return await this.todoRepositry.save(todo);
   }
+  async deleteTodo(id: number) {
+    const todo = await this.todoRepositry.findOne({where : {id}})
+    return await this.todoRepositry.remove(todo);
+  }
 }
