@@ -12,4 +12,8 @@ export class TodoService {
     const todo = this.todoRepositry.create(dto);
     return await this.todoRepositry.save(todo);
   }
+
+ async getAllTodos() {
+    return this.todoRepositry.find() ;
+  }
 }
