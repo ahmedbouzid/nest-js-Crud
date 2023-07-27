@@ -13,7 +13,14 @@ export class TodoService {
     return await this.todoRepositry.save(todo);
   }
 
- async getAllTodos() {
-    return this.todoRepositry.find() ;
+  async getAllTodos() {
+    return this.todoRepositry.find();
+  }
+
+  async updateTodo(id: number, dto: CreateTodoDto) {
+    const todo = await this.todoRepositry.findOne({ where: { id } });
+    // check that exist
+    Object.assign(todo, dto);
+    return await this.todoRepositry.save(todo);
   }
 }
