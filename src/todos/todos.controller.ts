@@ -21,4 +21,8 @@ export class TodoController {
   delete(@Param('id') id:number) {
     return this.service.deleteTodo(id)
   }
+  @Get(':id')
+  getById(@Param('id') id:number) {
+    return this.service.getById(id)
+  }
 }

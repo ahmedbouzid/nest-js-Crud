@@ -27,4 +27,8 @@ export class TodoService {
     const todo = await this.todoRepositry.findOne({where : {id}})
     return await this.todoRepositry.remove(todo);
   }
+  async getById(id:number) {
+
+    return await this.todoRepositry.findOne({where:{id}})
+  }
 }
